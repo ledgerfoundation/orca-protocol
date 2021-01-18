@@ -22,33 +22,33 @@ const chainIds = {
 };
 
 // Ensure that we have all the environment variables we need.
-let mnemonic: string;
-if (!process.env.MNEMONIC) {
-  throw new Error("Please set your MNEMONIC in a .env file");
-} else {
-  mnemonic = process.env.MNEMONIC;
-}
+// let mnemonic: string;
+// if (!process.env.MNEMONIC) {
+//   throw new Error("Please set your MNEMONIC in a .env file");
+// } else {
+//   mnemonic = process.env.MNEMONIC;
+// }
 
-let infuraApiKey: string;
-if (!process.env.INFURA_API_KEY) {
-  throw new Error("Please set your INFURA_API_KEY in a .env file");
-} else {
-  infuraApiKey = process.env.INFURA_API_KEY;
-}
+// let infuraApiKey: string;
+// if (!process.env.INFURA_API_KEY) {
+//   throw new Error("Please set your INFURA_API_KEY in a .env file");
+// } else {
+//   infuraApiKey = process.env.INFURA_API_KEY;
+// }
 
-function createTestnetConfig(network: keyof typeof chainIds): NetworkUserConfig {
-  const url: string = "https://" + network + ".infura.io/v3/" + infuraApiKey;
-  return {
-    accounts: {
-      count: 10,
-      initialIndex: 0,
-      mnemonic,
-      path: "m/44'/60'/0'/0",
-    },
-    chainId: chainIds[network],
-    url,
-  };
-}
+// function createTestnetConfig(network: keyof typeof chainIds): NetworkUserConfig {
+//   const url: string = "https://" + network + ".infura.io/v3/" + infuraApiKey;
+//   return {
+//     accounts: {
+//       count: 10,
+//       initialIndex: 0,
+//       mnemonic,
+//       path: "m/44'/60'/0'/0",
+//     },
+//     chainId: chainIds[network],
+//     url,
+//   };
+// }
 
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
@@ -56,10 +56,10 @@ const config: HardhatUserConfig = {
     hardhat: {
       chainId: chainIds.hardhat,
     },
-    goerli: createTestnetConfig("goerli"),
-    kovan: createTestnetConfig("kovan"),
-    rinkeby: createTestnetConfig("rinkeby"),
-    ropsten: createTestnetConfig("ropsten"),
+    // goerli: createTestnetConfig("goerli"),
+    // kovan: createTestnetConfig("kovan"),
+    // rinkeby: createTestnetConfig("rinkeby"),
+    // ropsten: createTestnetConfig("ropsten"),
   },
   paths: {
     artifacts: "./artifacts",
